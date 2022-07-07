@@ -1,0 +1,80 @@
+VIDEOGAMES
+	id: PK autoincrement
+	name: varchar(100)
+	description: text
+	software_house: FK
+
+SOFTWARE_HOUSES
+	id: PK autoincrement
+	name: varchar(50)
+	VAT: varchar(20)
+	city: varchar(20)
+	nation: varchar(30)
+
+PLATFORMS
+	id: PK autoincrement
+	name: varchar(20)
+
+VIDEOGAME_PLATFORM - pivot
+	id: PK autoincrement	
+	videogame_id: FK
+	platform_id: FK
+
+CATEGORYES
+	id: PK autoincrement	
+	name: varchar(20)
+
+VIDEOGAME_CATEGORY - pivot
+	id: PK autoincrement	
+	videogame_id: FK
+	category_id: FK
+	
+CLASSIFICATIONS
+	id: PK autoincrement	
+	name: varchar(20)
+
+VIDEOGAME_CLASSIFICATION - pivot
+	id: PK autoincrement	
+	videogame_id: FK
+	classification_id: FK
+
+AWARDS
+	id: PK autoincrement	
+	name: varchar(30)
+
+VIDEOGAME_AWARD - pivot
+	id: PK autoincrement	
+	videogame_id: FK
+	award_id: FK
+
+TOURNEYS
+	id: PK autoincrement	
+	name: varchar(30)
+	year: date
+	city: varchar(20)
+
+TOURNEY_VIDEOGAME - pivot
+	id: Pk autoincrement
+	tourney_id: FK
+	videogame_id: FK
+	
+PLAYERS
+	id: Pk autoincrement
+	name: varchar(20)
+	surname: varchar(20)
+	nickname: varchar(10)
+	city: varchar(20)
+
+TOURNEY_PLAYER - pivot
+	id: Pk autoincrement
+	tourney_id: FK
+	player-id: FK
+	
+REVIEWS
+	id: Pk autoincrement
+	videogame_id: FK
+	player_id: FK
+	title: varchar(50)
+	description: text
+	rating: tinyint
+
